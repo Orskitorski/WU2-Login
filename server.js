@@ -1,6 +1,7 @@
 import "dotenv/config"
 import express from "express"
 import nunjucks from "nunjucks"
+import logger from "morgan"
 
 const app = express()
 const port = 3000
@@ -11,6 +12,7 @@ nunjucks.configure("views", {
 })
 
 app.use(express.static("public"))
+app.use(logger("dev"))
 
 app.get("/", (req, res) => {
   res.render("index.njk",
