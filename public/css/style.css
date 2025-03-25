@@ -1,9 +1,18 @@
 body {
   font-family: sans-serif;
   font-size: 1.2rem;
+  background-color: rgb(37, 37, 37);
+  color: white;
 }
 
 main {
+  padding: 25px;
   width: min(100% - 3rem, var(--container-max, 60ch));
   margin-inline: auto;
+  background-color: rgb(29, 29, 29);
+  border-radius: 25px;
+
+  a {
+    color:rgb(31, 243, 243);
+  }
 }

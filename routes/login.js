@@ -21,12 +21,13 @@ router.post("/", async (req, res) => {
     res.render("login.njk", {
       title: "Login", 
       message: "Best service, legit.", 
-      error: "Wrong username or password"
+      error: "*Wrong username or password"
     })
   } else {
     bcrypt.compare(password, dbpassword[0].password, function(err, result) {
       console.log(result, err)
       if (result == true){
+        req.session.login=true
         res.redirect("/")
       }
       else {
@@ -36,7 +37,7 @@ router.post("/", async (req, res) => {
           error: "Wrong username or password"
         })
       }
-    });
+    })
   }
 })
 
